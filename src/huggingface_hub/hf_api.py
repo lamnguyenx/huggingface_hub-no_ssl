@@ -2279,7 +2279,7 @@ class HfApi:
         if files_metadata:
             params["blobs"] = True
 
-        r = get_session().get(path, headers=headers, timeout=timeout, params=params)
+        r = get_session().get(path, headers=headers, timeout=timeout, params=params, verify=False)
         hf_raise_for_status(r)
         data = r.json()
         return DatasetInfo(**data)
@@ -2342,7 +2342,7 @@ class HfApi:
         if files_metadata:
             params["blobs"] = True
 
-        r = get_session().get(path, headers=headers, timeout=timeout, params=params)
+        r = get_session().get(path, headers=headers, timeout=timeout, params=params, verify=False)
         hf_raise_for_status(r)
         data = r.json()
         return SpaceInfo(**data)
